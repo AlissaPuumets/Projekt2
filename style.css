@@ -1,17 +1,9 @@
 body {
-    background-color: #ffffff;
+    background-color: #bcb5ae;
     margin: 0;
     padding: 0;
     text-align: center;
     box-sizing: border-box;
-}
-
-.navbar {
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ecd1d6;
-    padding: 5px;
-    color: white;
 }
 
 li {
@@ -23,13 +15,34 @@ li {
 }
 
 h1 {
-    color: #dcbfc5;
-    font-size: 100px;
+    color: #ffffff;
+    font-size: 150px;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 150px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 160px;
+    color: #ffffff;
 }
 
 a {
-    color: white;
+    color: #ffffff;
+}
+
+.top-line {
+    border: 0;
+    height: 4px;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+.bottom-line {
+    border: 0;
+    height: 4px;
+    background-color: #ffffff;
+    margin-top: 190px;
 }
