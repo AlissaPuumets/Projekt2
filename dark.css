@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #333;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -9,7 +9,7 @@ body {
 .navbar {
     justify-content: space-between;
     align-items: center;
-    background-color: #ecd1d6;
+    background-color: #9a9a9a;
     padding: 5px;
     color: white;
 }
@@ -22,22 +22,38 @@ li {
     margin-right: 100px;
 }
 
-.box {
-    background-color: #715d5d;
-    margin: 20px 100px 10px 100px;
-    padding: 250px;
+.container {
+    background-color: #9a9a9a;
+    margin: 20px 200px 10px 200px;
+    padding: 25px;
     text-align: center;
     border-radius: 20px;
 }
 
 h1 {
-    color: #dcbfc5;
+    color: #9a9a9a;
     font-size: 100px;
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 a {
     color: white;
 }
+
+input[type="checkbox"] {
+    display: flex;
+    margin-bottom: 10px;
+    width: 25px;
+    height: 25px;
+    accent-color: #d7c8d2;
+  }
+
+  input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      width: 80%;
+  }
