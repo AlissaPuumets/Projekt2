@@ -22,6 +22,14 @@ li {
     margin-right: 100px;
 }
 
+.box {
+    background-color: #715d5d;
+    margin: 20px 100px 10px 100px;
+    padding: 250px;
+    text-align: center;
+    border-radius: 20px;
+}
+
 h1 {
     color: #dcbfc5;
     font-size: 100px;
