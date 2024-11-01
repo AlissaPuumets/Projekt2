@@ -20,7 +20,13 @@ li {
     font-size: larger;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
+
+.todo-item li {
+    display: flex;
+}     
 
 .container {
     background-color: #9a9a9a;
@@ -32,7 +38,7 @@ li {
 
 h1 {
     color: #9a9a9a;
-    font-size: 100px;
+    font-size: 120px;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -44,16 +50,19 @@ a {
 
 input[type="checkbox"] {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     width: 25px;
     height: 25px;
-    accent-color: #d7c8d2;
+    accent-color: #9a9a9a;
   }
 
   input[type="text"] {
+      align-items: center;
       padding: 8px;
       font-size: 16px;
       border: 1px solid #ffffff;
       border-radius: 4px;
       width: 80%;
+    
   }
+  
