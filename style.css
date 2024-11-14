@@ -1,5 +1,5 @@
 body {
-    background-color: #101114;
+    background-color: #bcb5ae;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-    color: #4A4D57;
+    color: white;
     font-size: 140px;
     text-align: center;
     margin-top: 10px;
@@ -19,7 +19,7 @@ h1 {
     font-style: italic;
     margin-top: 2px;
     margin-bottom: 2px;
-    color: #4A4D57;
+    color: white;
 }
 
 .exp {
@@ -27,19 +27,19 @@ h1 {
     font-style: italic;
     margin-top: 5px;
     margin-bottom: 120px;
-    color: #4A4D57;
+    color: white;
 }
 
 .top-line {
     border: 0;
     height: 4px;
-    background-color: #d1428e;
+    background-color: white;
     margin-top: 20px;
 }
 
 .bottom-line {
     border: 0;
     height: 4px;
-    background-color: #d1428e;
-    margin-top: 400px;
+    background-color: white;
+    margin-top: 510px;
 }
