@@ -5,7 +5,11 @@
 *{
     margin: 0;
     padding: 0;
-    font-size: 16px;
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
 }
 
 body {
@@ -149,7 +153,7 @@ input[type="checkbox"]:checked ~ .custom-checkbox svg{
 
 input[type="checkbox"]:checked ~ .todo-text{
     text-decoration: line-through;
-    color: black;
+    color: #bcb5ae;
 }
 
 input[type="checkbox"]{
