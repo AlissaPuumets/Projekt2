@@ -21,18 +21,13 @@ body {
     background-color: #bcb5ae;
 }
 
-.top{
-    margin-top: 20px;
+.top-line{
+    margin-top: 5px;
     width: 120%;
     background-color: white;
     height: 2px;
 }
 
-.bottom{
-    width: 120%;
-    background-color: white;
-    height: 2px;
-}
 
 h1 {
     margin-top: 60px;
@@ -73,7 +68,6 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 160px;
 }
 
 #todo-input{
