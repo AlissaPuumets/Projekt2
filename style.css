@@ -15,10 +15,23 @@ html{
 body {
     min-height: 100vh;
     padding: 10px;
-    background-color: #bcb5ae; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #bcb5ae;
+}
+
+.top{
+    margin-top: 20px;
+    width: 120%;
+    background-color: white;
+    height: 2px;
+}
+
+.bottom{
+    width: 120%;
+    background-color: white;
+    height: 2px;
 }
 
 h1 {
@@ -60,6 +73,7 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 160px;
 }
 
 #todo-input{
