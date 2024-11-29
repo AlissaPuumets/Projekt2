@@ -54,22 +54,18 @@ function createTodoItem(todo, todoIndex){
         deleteTodoItem(todoIndex);
     })
     const checkbox = todoLI.querySelector("input");
-    checkbox.addEventListener("change", ()=>{
+    checkbox.addEventListener("change", () => {
         allTodos[todoIndex].completed = checkbox.checked;
         saveTodos();
-        checkbox.addEventListener("change", () => {
-            allTodos[todoIndex].completed = checkbox.checked;
-            saveTodos();
-        
-            if (checkbox.checked) {
-                const rect = checkbox.getBoundingClientRect();
-                party.confetti(checkbox, {
-                    count: 80,
-                    spread: 100,
-                });
-            }
-        });
-    })
+        if (checkbox.checked) {
+            party.confetti(checkbox, {
+                count: 400,
+                spread: 200,
+            });
+        }
+    });
+    
+
     checkbox.checked = todo.completed;
     return todoLI;
 }
