@@ -1,6 +1,27 @@
+const url = "https://kool.krister.ee/chat/GetDone";
 const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
+
+async function addToDo() {
+    const input = document.querySelector("#todo-input");
+    const todo = input.value;
+
+    const data = { todo };
+    
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }),
+        
+    }
+}
+
+document.querySelector("#add-button").addEventListener("click", addToDo);
 
 let allTodos = getTodos();
 updateTodoList();
@@ -74,14 +95,4 @@ function deleteTodoItem(todoIndex){
     allTodos = allTodos.filter((_, i)=> i !== todoIndex);
     saveTodos();
     updateTodoList();
-}
-
-function saveTodos(){
-    const todosJson = JSON.stringify(allTodos);
-    localStorage.setItem("todos", todosJson);
-}
-
-function getTodos(){
-    const todos = localStorage.getItem("todos") || "[]";
-    return JSON.parse(todos);
 }
