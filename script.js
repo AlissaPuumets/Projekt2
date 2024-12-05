@@ -19,7 +19,7 @@ async function addToDo() {
         }),
         
     }
-}
+};
 
 document.querySelector("#add-button").addEventListener("click", addToDo);
 
