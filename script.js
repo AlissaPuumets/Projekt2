@@ -1,27 +1,6 @@
-const url = "https://kool.krister.ee/chat/GetDone";
 const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
-
-async function addToDo() {
-    const input = document.querySelector("#todo-input");
-    const todo = input.value;
-
-    const data = { todo };
-    
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        }),
-        
-    }
-};
-
-document.querySelector("#add-button").addEventListener("click", addToDo);
 
 let allTodos = getTodos();
 updateTodoList();
@@ -75,9 +54,23 @@ function createTodoItem(todo, todoIndex){
         deleteTodoItem(todoIndex);
     })
     const checkbox = todoLI.querySelector("input");
+    checkbox.addEventListener("change", ()=>{
     checkbox.addEventListener("change", () => {
         allTodos[todoIndex].completed = checkbox.checked;
         saveTodos();
+        checkbox.addEventListener("change", () => {
+            allTodos[todoIndex].completed = checkbox.checked;
+            saveTodos();
+        
+            if (checkbox.checked) {
+                const rect = checkbox.getBoundingClientRect();
+                party.confetti(checkbox, {
+                    count: 80,
+                    spread: 100,
+                });
+            }
+        });
+    })
         if (checkbox.checked) {
             party.confetti(checkbox, {
                 count: 400,
@@ -86,7 +79,6 @@ function createTodoItem(todo, todoIndex){
         }
     });
     
-
     checkbox.checked = todo.completed;
     return todoLI;
 }
@@ -96,3 +88,12 @@ function deleteTodoItem(todoIndex){
     saveTodos();
     updateTodoList();
 }
+
+function saveTodos(){
+    const todosJson = JSON.stringify(allTodos);
+    localStorage.setItem("todos", todosJson);
+}
+
+function getTodos(){
+    const todos = localStorage.getItem("todos") || "[]";
+    return JSON.parse(todos);
