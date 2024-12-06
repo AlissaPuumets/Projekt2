@@ -75,12 +75,5 @@ function deleteTodoItem(todoIndex) {
     updateTodoList();
 }
 
-function saveTodos() {
-    const todosJson = JSON.stringify(allTodos);
-    localStorage.setItem("todos", todosJson);
-}
+const url = "https://kool.krister.ee/chat/GetDone";
 
-function getTodos() {
-    const todos = localStorage.getItem("todos") || "[]";
-    return JSON.parse(todos);
-}
