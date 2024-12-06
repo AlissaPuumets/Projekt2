@@ -77,3 +77,8 @@ function deleteTodoItem(todoIndex) {
 
 const url = "https://kool.krister.ee/chat/GetDone";
 
+async function fetchTodos() {
+    const response = await fetch (url);
+    const data = await response.json();
+    const element = document.querySelector(".")
+}
