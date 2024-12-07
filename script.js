@@ -80,7 +80,7 @@ function getTodos(){
 async function fetchTodos() {
     const response = await fetch (url);
     const data = await response.json();
-    const element = document.querySelector(".todo-list")
+    const element = document.querySelector("#todo-list")
 
     element.innerHTML = "";
     for (const item of data) {
