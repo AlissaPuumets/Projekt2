@@ -75,10 +75,8 @@ function deleteTodoItem(todoIndex) {
 
 const url = "https://kool.krister.ee/chat/GetDone";
 
-function getTodos(){
-}; 
 async function fetchTodos() {
-    const response = await fetch (url);
+    const response = await fetch(url);
     const data = await response.json();
     const element = document.querySelector("#todo-list")
 
@@ -89,10 +87,9 @@ async function fetchTodos() {
     }
 }
 
-fetchTodos()
+fetchTodos();
 
-function saveTodos() {
-    const todos = {}
+async function saveTodos() {
     fetch(url, {
         method: "POST",
         headers: {
@@ -102,4 +99,4 @@ function saveTodos() {
       });
 }
 
-saveTodos()
+saveTodos();
