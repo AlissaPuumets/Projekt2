@@ -1,12 +1,13 @@
 const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
+const url = "https://kool.krister.ee/chat/GetDone";
 let allTodos = [];
 
 todoForm.addEventListener('submit', function (e) {
     e.preventDefault();
     addTodo();
-})
+});
 
 function addTodo() {
     const todoText = todoInput.value.trim();
@@ -14,7 +15,7 @@ function addTodo() {
         const todoObject = {
             text: todoText,
             completed: false
-        }
+        };
         allTodos.push(todoObject);
         createTodoItem(todoText);
         updateTodoList();
@@ -22,49 +23,50 @@ function addTodo() {
         todoInput.value = "";
     }
 }
+
 function updateTodoList() {
     todoListUL.innerHTML = "";
     allTodos.forEach((todo, todoIndex) => {
         todoItem = createTodoItem(todo, todoIndex);
         todoListUL.append(todoItem);
-    })
+    });
 }
 
 function createTodoItem(todo, todoIndex) {
     const todoId = "todo-" + todoIndex;
     const todoLI = document.createElement("li");
-    const todoText = todo.text;
     todoLI.className = "todo";
     todoLI.innerHTML = `
     <input type="checkbox" id="${todoId}">
-                <label class="custom-checkbox" for="${todoId}">
-                    <svg fill="transparent" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                </label>
-                <label for="${todoId}" class="todo-text">
-                    ${todoText}
-                </label>
-                <button class="delete-button">
-                    <svg fill="var(--secondary-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
-                </button>
-    `
+    <label class="custom-checkbox" for="${todoId}">
+        <svg fill="transparent" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+    </label>
+    <label for="${todoId}" class="todo-text">
+        ${todo.text}
+    </label>
+    <button class="delete-button">
+        <svg fill="var(--secondary-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+    </button>
+    `;
     const deleteButton = todoLI.querySelector(".delete-button");
     deleteButton.addEventListener("click", () => {
         deleteTodoItem(todoIndex);
-    })
-    const checkbox = todoLI.querySelector("input");
-    checkbox.addEventListener("change", () => {
-        allTodos[todoIndex].completed = checkbox.checked;
-        saveTodos();
-        if (checkbox.checked) {
-            party.confetti(checkbox, {
-                count: 400,
-                spread: 200,
-            });
-        }
     });
 
-    checkbox.checked = todo.completed;
-    return todoLI;
+const checkbox = todoLI.querySelector("input");
+checkbox.addEventListener("change", () => {
+    allTodos[todoIndex].completed = checkbox.checked; 
+    saveTodos();
+    if (checkbox.checked) {
+        party.confetti(checkbox, {
+            count: 400,
+            spread: 200,
+        });
+    }
+});
+
+checkbox.checked = todo.completed;
+return todoLI;
 }
 
 function deleteTodoItem(todoIndex) {
@@ -73,12 +75,10 @@ function deleteTodoItem(todoIndex) {
     updateTodoList();
 }
 
-const url = "https://kool.krister.ee/chat/GetDone";
-
 async function fetchTodos() {
     const response = await fetch(url);
     const data = await response.json();
-    const element = document.querySelector("#todo-list")
+    const element = document.querySelector("#todo-list");
 
     element.innerHTML = "";
     for (const item of data) {
@@ -86,17 +86,14 @@ async function fetchTodos() {
         element.innerHTML += "<li>" + todo + "</li>";
     }
 }
-
 fetchTodos();
 
-async function saveTodos() {
-    fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(allTodos),
-      });
+async function saveTodos() {    fetch(url, {
+    method: "POST", 
+    headers: {
+        "Content-Type": "application/json", 
+    },
+    body: JSON.stringify(allTodos), 
+});
 }
-
 saveTodos();
