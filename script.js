@@ -1,7 +1,7 @@
 const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
-const url = "https://kool.krister.ee/chat/GetDone";
+const url = "https://tink.fly.dev/chat/GetDone";
 let allTodos = [];
 
 todoForm.addEventListener('submit', function (e) {
@@ -53,20 +53,20 @@ function createTodoItem(todo, todoIndex) {
         deleteTodoItem(todoIndex);
     });
 
-const checkbox = todoLI.querySelector("input");
-checkbox.addEventListener("change", () => {
-    allTodos[todoIndex].completed = checkbox.checked; 
-    saveTodos();
-    if (checkbox.checked) {
-        party.confetti(checkbox, {
-            count: 400,
-            spread: 200,
-        });
-    }
-});
+    const checkbox = todoLI.querySelector("input");
+    checkbox.addEventListener("change", () => {
+        allTodos[todoIndex].completed = checkbox.checked;
+        saveTodos();
+        if (checkbox.checked) {
+            party.confetti(checkbox, {
+                count: 400,
+                spread: 200,
+            });
+        }
+    });
 
-checkbox.checked = todo.completed;
-return todoLI;
+    checkbox.checked = todo.completed;
+    return todoLI;
 }
 
 function deleteTodoItem(todoIndex) {
@@ -88,12 +88,12 @@ async function fetchTodos() {
 }
 fetchTodos();
 
-async function saveTodos() {    fetch(url, {
-    method: "POST", 
-    headers: {
-        "Content-Type": "application/json", 
-    },
-    body: JSON.stringify(allTodos), 
-});
+async function saveTodos() {
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(allTodos),
+    });
 }
-saveTodos();
